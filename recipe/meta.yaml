@@ -20,14 +20,6 @@ requirements:
     - pip
     - hatchling
 
-  build:
-    - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
-    - meson
-    - meson-python
-    - ninja
-    - pkg-config
-
   run:
     - python
     - alembic
