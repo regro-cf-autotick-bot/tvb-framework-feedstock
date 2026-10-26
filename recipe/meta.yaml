@@ -72,7 +72,7 @@ test:
     - python -m zipfile -e tvb_data.zip tvb_data
     - cd tvb_data
     - python setup.py develop
-    - pytest --pyargs tvb.tests.framework --ignore-glob='**/siibra*_test.py' -k "not (TestNetworkxImporter and test_import)"
+    - pytest --pyargs tvb.tests.framework --ignore-glob='/**/siibra*_test.py' -k "not (TestNetworkxImporter and test_import)"
 
   imports:
     - tvb.core.adapters
