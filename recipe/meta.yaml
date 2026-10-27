@@ -55,12 +55,10 @@ requirements:
     - docutils
     - gevent
     - bctpy
+    - scikit-image # For siibra
     - decorator
 
 test:
-  files:
-    - run_tests.py
-
   requires:
     - pip
     - pytest
@@ -71,11 +69,12 @@ test:
 
   commands:
     - pip install requests-toolbelt pynrrd simpleitk wget
+    - pip install bctpy siibra==1.0.1a10 xarray
     - python -m wget -o tvb_data.zip https://zenodo.org/record/10128131/files/tvb_data.zip?download=1
     - python -m zipfile -e tvb_data.zip tvb_data
     - cd tvb_data
     - python setup.py develop
-    - python ../run_tests.py
+    - pytest --pyargs tvb.tests.framework
 
   imports:
     - tvb.core.adapters
